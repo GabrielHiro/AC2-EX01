@@ -6,21 +6,19 @@ public class Professor extends funcionario {
 
     private String urlCurriculoLattes;
 
-    private ArrayList<Disciplina> disciplinas;
+    private ArrayList<Disciplina> disciplinas = new ArrayList<>();
 
     public Professor() {
-        this.disciplinas = new ArrayList<>();
     }
 
     public Professor(String Nome, String cpf, String urlCurriculoLattes) {
-        this.disciplinas = new ArrayList<>();
         setNome(Nome);
         setCpf(cpf);
         this.urlCurriculoLattes = urlCurriculoLattes;
     }
 
-    public void addDisciplina(int i,Disciplina disciplinal) {
-         disciplinas.add(i,disciplinal);
+    public void addDisciplina(Disciplina disciplinal) {
+        disciplinas.add(disciplinal);
     }
 
     public String getUrlCurriculoLattes() {
@@ -31,16 +29,23 @@ public class Professor extends funcionario {
         this.urlCurriculoLattes = urlCurriculoLattes;
     }
 
+    public ArrayList<Disciplina> getDisciplinas() {
+        return disciplinas;
+    }
+    
+    public Disciplina getDisciplinas(int index){
+        return disciplinas.get(index);
+    }
 
     //Não esta sendo usado
     public void removeDisciplina(int index) {
+        disciplinas.remove(index);
     }
 
     public void removeDisciplina(Disciplina disciplina) {
         disciplinas.remove(disciplina);
     }
     //talvez faltou o uso deles
-
 
     @Override
     public String toString() {

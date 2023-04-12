@@ -12,17 +12,14 @@ public class Ex01Main {
 
         int iProf = 0;
         int iDisci = 0;
-        
-        
-        ArrayList<Pessoa> P = new ArrayList<>();
 
-        Disciplina dis = new Disciplina();
-        Professor pro = new Professor();
-        Atendente ate = new Atendente();
-        Aluno alu = new Aluno();
+        ArrayList<Pessoa> P = new ArrayList<>();
 
         Scanner Inp = new Scanner(System.in);
         int a = 0;
+
+        Professor pro = new Professor();
+        Disciplina dis = new Disciplina();
 
         while (a == 0) {
             System.out.println(" | --- - -- -- --| Cadastro - Odin |- - -- - - - -|");
@@ -37,6 +34,7 @@ public class Ex01Main {
             int F = Inp.nextInt();
             switch (F) {
                 case 1 -> {
+                    dis = new Disciplina();
                     System.out.println("Codigo: ");
                     dis.setCodigo(Inp.nextInt());
                     System.out.println("Nome: ");
@@ -46,6 +44,7 @@ public class Ex01Main {
                 }
 
                 case 2 -> {
+                    pro = new Professor();
                     System.out.println("Nome: ");
                     pro.setNome(Inp.next());
                     System.out.println("CPF: ");
@@ -56,11 +55,12 @@ public class Ex01Main {
                     pro.setSalario(Inp.nextInt());
                     System.out.println("urlCurriculoLattes: ");
                     pro.setUrlCurriculoLattes(Inp.next());
+                    P.add(iProf, pro);
                     iProf++;
-                    P.add(pro);
                     System.out.println("Professor adicionado com sucesso!");
                 }
                 case 3 -> {
+                    Atendente ate = new Atendente();
                     System.out.println("Nome: ");
                     ate.setNome(Inp.next());
                     System.out.println("CPF: ");
@@ -78,6 +78,7 @@ public class Ex01Main {
                     System.out.println("Atendente adicionado com sucesso!");
                 }
                 case 4 -> {
+                    Aluno alu = new Aluno();
                     System.out.println("Nome: ");
                     alu.setNome(Inp.next());
                     System.out.println("CPF: ");
@@ -90,12 +91,12 @@ public class Ex01Main {
 
                     System.out.println("Aluno adicionado com sucesso!");
                 }
-
                 case 5 -> {
+
                     if (iProf == 0 || iDisci == 0) {
                         System.out.println("Não há professores ou disciplinas cadastrados.");
                     } else {
-                        pro.addDisciplina(iDisci-1,dis);
+                        pro.addDisciplina(dis);
                         System.out.println("Disciplina Adionado ao Professor.");
                     }
                 }
